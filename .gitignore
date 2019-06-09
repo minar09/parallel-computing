@@ -1,6 +1,11 @@
 # Prerequisites
 *.d
 
+# Output log files
+*.txt
+*.csv
+*.odt
+
 # Object files
 *.o
 *.ko
