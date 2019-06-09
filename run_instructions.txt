@@ -1,0 +1,34 @@
+Python:
+
+	mpirun -n 4 python MPI_python.py
+
+
+C:
+
+	gcc jacobi.c -o jacobi.out -lm
+	./jacobi.out
+
+	export OMP_NUM_THREADS=4
+	gcc -fopenmp OpenMP_C.c -o OpenMP_C.out
+	./OpenMP_C.out
+
+	gcc -fopenmp jacobi_openmp.c -o jacobi_openmp.o -lm
+	./jacobi_openmp.out 100 4
+	./exec_script.sh
+
+	mpicc gs_mpi.c -o gs_mpi.o
+	./gs_mpi 100 1
+	mpirun -n 4 ./gs_mpi.o 100 1
+	mpiexec -n 4 ./gs_mpi.o 100 1
+	./exec_script.sh
+
+	mpicc jacobi_mpi.c -o jacobi_mpi.o
+	./jacobi_mpi.o 100 0
+	mpirun -n 4 ./jacobi_mpi.o 100 0
+	./exec_script.sh
+
+
+Fortran:
+
+	gfortran OMP_Fortran.f90 -o OMP_Fortran.exe -fopenmp
+	./OMP_Fortran.exe
