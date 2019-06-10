@@ -2,7 +2,7 @@
 
 iterations=(1 2 3 4 5)
 processes=(1 2 4 8)
-matrix_sizes=(100 200 400 800 1600)
+matrix_sizes=(100 200 400 600 800 1000)
 
 for matrix_size in "${matrix_sizes[@]}"
 do

@@ -3,7 +3,7 @@
 processes=(1 2 4 8)
 exec_modes=(0 1)
 iterations=(1 2 3 4 5)
-matrix_sizes=(100 200 400 800 1600)
+matrix_sizes=(100 200 400 600 800 1000)
 
 
 for exec_mode in "${exec_modes[@]}"
