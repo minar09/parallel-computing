@@ -152,7 +152,7 @@ int main(int argc, char *argv[]) {
 
 	n = atoi(argv[1]);
 	communication =	atoi(argv[2]);
-	
+
 	if (myrank == 0) {
 		printf("Matrix size = %d communication = %d\n", n, communication);
 	}
@@ -183,7 +183,7 @@ int main(int argc, char *argv[]) {
 				// Allocating memory for the whole matrix
 				allocate_root_matrix(&a, n, n);
 
-				// Master sends chuncks to every other node
+				// Master sends chunks to every other node
 				for (i = 1; i < np; i++) {
 					int i_offset = nodes_offsets[i];
 					int i_elems = nodes_elems[i];
@@ -205,7 +205,7 @@ int main(int argc, char *argv[]) {
 		case 1: {
 			if (myrank == 0) {
 				// Allocating memory for the whole matrix
-				allocate_root_matrix(&a, n, n);		
+				allocate_root_matrix(&a, n, n);
 			}
 			// Allocating the exact memory where the receiving rows are computed
 			allocate_node_matrix(&b, num_elems);
@@ -240,7 +240,7 @@ int main(int argc, char *argv[]) {
 
 				MPI_Status status;
 
-				// Master sends chuncks to every other node
+				// Master sends chunks to every other node
 				for (i = 1; i < np; i++) {
 					int i_offset = nodes_offsets[i] + n; 		// +n to skip cortex values
 					int i_elems = nodes_elems[i] - (2*n);		// -2n to skip cortex values
@@ -257,7 +257,7 @@ int main(int argc, char *argv[]) {
 
 			break;
 		}
-		
+
 		case 1: {
 
 			// Collective communication for gathering the matrix
